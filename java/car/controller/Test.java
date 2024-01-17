@@ -6,6 +6,7 @@ import car.model.Auto;
 
 public class Test {
     public static void main(String[] args){
+
         Auto auto1 = new Auto();
         auto1.setPlaca("123");
         auto1.setMarca("Toyota");

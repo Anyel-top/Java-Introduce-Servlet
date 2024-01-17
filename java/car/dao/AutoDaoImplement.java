@@ -10,7 +10,7 @@ public class AutoDaoImplement implements IAutoDAO {
 
     @Override
     public void add(Auto auto) {
-        MemoryStore.editAuto(auto);
+        MemoryStore.addAuto(auto);
     }
 
     @Override
