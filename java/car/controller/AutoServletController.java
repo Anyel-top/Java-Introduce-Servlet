@@ -20,6 +20,7 @@ public class AutoServletController extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        /*
         Auto auto1 = new Auto();
         auto1.setPlaca("123");
         auto1.setMarca("Toyota");
@@ -53,7 +54,32 @@ public class AutoServletController extends HttpServlet {
         request.setAttribute("autos", listaAutos);
 
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-        rd.forward(request, response);
+        rd.forward(request, response);*/
+        String opcion = request.getParameter("opcion");
+        if (opcion.equals("registro")){
+            RequestDispatcher rd = request.getRequestDispatcher("crear.jsp");
+            rd.forward(request, response);
+        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        IAutoDAO oAutoDao  =new AutoDaoImplement();
+        String opcion= req.getParameter("opcion");
+        if(opcion.equals("crear")){
+            Auto oAuto = new Auto();
+            oAuto.setMarca(req.getParameter("marca"));
+            oAuto.setPlaca(req.getParameter("placa"));
+            oAuto.setModelo(req.getParameter("modelo"));
+
+            oAutoDao.add(oAuto);
+            List<Auto> listaAutos = oAutoDao.get();
+            req.setAttribute("autos", listaAutos);
+
+            RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+            rd.forward(req, resp);
+        }
     }
 
     public void destroy() {

@@ -8,7 +8,7 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
-<a href="">Agregar auto</a>
+<a href="servletController?opcion=registro">Agregar auto</a>
 <br/>
 <table border="1">
     <tr>
