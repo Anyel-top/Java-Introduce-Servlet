@@ -15,6 +15,7 @@
         <th>Marca </th>
         <th>Placa </th>
         <th>Modelo </th>
+        <th colspan="2">Acciones</th>
 
 
     </tr>
@@ -23,6 +24,9 @@
             <td><c:out value="${auto.marca}"></c:out></td>
             <td><c:out value="${auto.placa}"></c:out></td>
             <td><c:out value="${auto.modelo}"></c:out></td>
+            <td>Editar</td>
+            <td><a href="servletController?opcion=eliminar&placa=<c:out value="${auto.placa}"></c:out>">Eliminar</a> </td>
+
         </tr>
     </c:forEach>
 </table>

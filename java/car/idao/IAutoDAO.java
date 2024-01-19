@@ -9,4 +9,5 @@ public interface IAutoDAO {
     void update (Auto auto);
     List<Auto> get();
     Auto getAuto(String placa);
+    void detele (String placa);
 }

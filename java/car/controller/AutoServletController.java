@@ -55,9 +55,17 @@ public class AutoServletController extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);*/
+        IAutoDAO oAutoDAO = new AutoDaoImplement();
         String opcion = request.getParameter("opcion");
         if (opcion.equals("registro")){
             RequestDispatcher rd = request.getRequestDispatcher("crear.jsp");
+            rd.forward(request, response);
+        }else if (opcion.equals("eliminar")){
+             oAutoDAO.detele(request.getParameter("placa"));
+            List<Auto> listaAutos = oAutoDAO.get();
+            request.setAttribute("autos", listaAutos);
+
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         }
 

@@ -32,4 +32,10 @@ public class MemoryStore {
     public static Auto getAuto(String placa){
         return autos.get(placa);
     }
+
+    public static void deleteAuto(String placa){
+        if(autos.containsKey(placa)){
+            autos.remove(placa);
+        }
+    }
 }
